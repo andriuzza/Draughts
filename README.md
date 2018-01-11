@@ -15,4 +15,7 @@ yra sankirtoje su 4 eilute ir 8 stulpeliu - rašote, 48 į input'ą
 8. Damkės gali kirsti per visus langelius, kurie jai eina įstrižai (X -kirimas per visą lentą)
 9. Nukirtus vieną šaškę su damkę(King) - yra parašytas algoritmas, kuris tikrina variantus įstrižus jai,  
    ar dar yra galimybę jai kirsti - jei yra, vartoojas antrą kartą vedą duomenis, kuri šaškę ir kur norima kirsti.
-![alt text](https://drive.google.com/open?id=1oBnv2HAHRDQKfkd6QNVX6T7ALrEZstBg)
+<p align="center">
+  <img src="https://drive.google.com/open?id=1oBnv2HAHRDQKfkd6QNVX6T7ALrEZstBg" width="350"/>
+ 
+</p>
