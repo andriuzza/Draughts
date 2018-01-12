@@ -86,7 +86,7 @@ namespace Draught
                 BoardValue[0, i] = -1;
                 BoardValue[Width+1, i] = -1;
             }
-            BoardValue[6, 6] = 9;
+          
         }
         private void CheckIfGameIsOver()
         {
