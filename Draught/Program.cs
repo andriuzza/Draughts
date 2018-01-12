@@ -86,6 +86,7 @@ namespace Draught
                 BoardValue[0, i] = -1;
                 BoardValue[Width+1, i] = -1;
             }
+            BoardValue[6, 6] = 9;
         }
         private void CheckIfGameIsOver()
         {
@@ -266,21 +267,26 @@ namespace Draught
                 else
                 {
                     if (from.Item1 + (a * X) < 1 || from.Item2 + (a * Y) < 1
-                        || from.Item1 + (a * X) > Width
-                        || from.Item2 + (a * Y) > Width) { return false; }
-                    if (BoardValue[from.Item1 + (a * X), from.Item2 + (a * Y)] == King
-                        || BoardValue[from.Item1 + (a * X), from.Item2 + (a * Y)] == BasicValue) {/* RecursionKing = 1; break;*/ return false; }
-                    if (BoardValue[from.Item1 + (a * X), from.Item2 + (a * Y)] != King
-                        && BoardValue[from.Item1 + (a * X), from.Item2 + (a * Y)] != 0
-                        && BoardValue[from.Item1 + (a * X), from.Item2 + (a * Y)] != BasicValue
-                        && BoardValue[from.Item1 + ((a + 1) * X), from.Item2 + ((a + 1) * Y)] == 0)
+                        || from.Item1 + (a * Y) > Width
+                        || from.Item2 + (a * X) > Width) {
+                        
+                        return false;
+                    }
+                    if (BoardValue[from.Item1 + (a * Y), from.Item2 + (a * X)] == King
+                        || BoardValue[from.Item1 + (a * Y), from.Item2 + (a * X)] == BasicValue) {/* RecursionKing = 1; break;*/ return false; }
+                    if (BoardValue[from.Item1 + (a * Y), from.Item2 + (a * X)] != King
+                        && BoardValue[from.Item1 + (a * Y), from.Item2 + (a * X)] != 0
+                        && BoardValue[from.Item1 + (a * Y), from.Item2 + (a * X)] != BasicValue
+                        && BoardValue[from.Item1 + ((a + 1) * Y), from.Item2 + ((a + 1) * X)] == 0)
                     {
-                        Matches.Add(new Tuple<int, int>(from.Item1 + (a * X), from.Item2 + (a * Y)));
+                        Matches.Add(new Tuple<int, int>(from.Item1 + (a * Y), from.Item2 + (a * X)));
                         a++;
                         EmptySquare = true;
                     }
                 }
+               
             }
+            
 
             if (EmptySquare == false && Needed == 0) { return false; }
             if (RecursionKing == 0)
@@ -305,6 +311,7 @@ namespace Draught
                         }
                     }
                     Matches.Clear();
+                    CheckIfGameIsOver();
                 }
                 return true;
             }
